@@ -1,8 +1,12 @@
-FROM golang:alpine
-MAINTAINER Lobin Alexander <agl@aglnn.ru>
-RUN mkdir /app 
-ADD . /app/ 
-WORKDIR /app
-RUN go build -o main .
-CMD ["/app/main"]
+FROM golang:alpine as build
+RUN mkdir /src
+COPY web.go /src
+WORKDIR /src
+RUN go build /src/web.go
+CMD ["/src/web"]
 EXPOSE 8080
+
+FROM alpine:latest as production
+RUN mkdir /web
+COPY --from=build /src/web  /web/
+CMD ["/web/web"]
