@@ -7,7 +7,7 @@ import (
 
 func main() {
 	http.HandleFunc("/", func (w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "Hello world 1")
+		fmt.Fprintf(w, "Hello world 111")
 	})
 
 	fs := http.FileServer(http.Dir("static/"))
