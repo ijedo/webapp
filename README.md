@@ -4,7 +4,7 @@
 
 Деплой приложения осуществлен через helm
 
-Нужно добавить репозиторий командой `helm repo add webapp-repo 'https://github.com/agl-nn/helm-repo/'`
+Нужно добавить репозиторий командой `helm repo add webapp-repo 'https://agl-nn.github.io/helm-repo/'`
 
 для установки приложения выполнить `helm install webapp webapp-repo/webapp`
 
