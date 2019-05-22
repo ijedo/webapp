@@ -5,6 +5,8 @@
 
 Деплой приложения осуществлен через helm https://github.com/agl-nn/helm-repo
 
+После выкладки сервис доступен на ${ip-minicube}:30010
+
 # Подготовка
 
 Нужно добавить репозиторий командой `helm repo add webapp-repo 'https://agl-nn.github.io/helm-repo/'`
