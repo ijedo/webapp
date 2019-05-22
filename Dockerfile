@@ -1,6 +1,6 @@
 FROM golang:alpine as build
 RUN mkdir /src
-COPY web.go /src
+COPY src/web.go /src
 WORKDIR /src
 RUN go build /src/web.go
 CMD ["/src/web"]
