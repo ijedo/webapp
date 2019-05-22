@@ -3,19 +3,27 @@
 
 Контнейнер находится в публичном репозитории dockerhub, билдится он автоматически после создания tag в репозитории github (билд проходит минут 5-7)
 
-Деплой приложения осуществлен через helm https://github.com/agl-nn/helm-repo
+Деплой приложения осуществлен через helm адрес репозитория https://github.com/agl-nn/helm-repo
 
 После выкладки сервис доступен на ${ip-minicube}:30010
 
 # Подготовка
 
-Нужно добавить репозиторий командой `helm repo add webapp-repo 'https://agl-nn.github.io/helm-repo/'`
+Скопировать helm репозиторий командой `git clone git@github.com:agl-nn/helm-repo.git`
 
-для установки приложения выполнить `helm install webapp webapp-repo/webapp`
+# Установка
 
-для обновления нужно выполнить `helm upgrade webapp webapp-repo/webapp --set=image.tag=release-${tag_number}`
+для установки приложения выполнить `helm install webapp helm-repo/webapp`
 
-для отката на предыдущую версию выполнить `helm rollback webapp ${revision}`
+# Обновление
+
+Чтобы выполнить обновление сервиса нужно в helm-repo/values.yaml прописать нужную версию tag для image, например release-0.11
+
+выполнить `helm upgrade  --version 0.11 webapp helm-repo/webapp`
+
+# Откат изменений
+ 
+для отката изменений нужно выполнить `helm rollback webapp ${revision}`
 
 Номер revision можно посмотреть командой `helm history webapp`
 
