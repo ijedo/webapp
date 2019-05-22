@@ -19,7 +19,7 @@
 
 Чтобы выполнить обновление сервиса нужно в helm-repo/values.yaml прописать нужную версию tag для image, например release-0.11
 
-выполнить `helm upgrade  --version 0.11 webapp helm-repo/webapp`
+выполнить `helm upgrade  --version 0.11 webapp helm-repo/webapp -f webapp/values.yaml`
 
 # Откат изменений
  
