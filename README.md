@@ -15,7 +15,7 @@
 
 # Установка
 
-Для установки приложения выполнить `helm install webapp helm-repo/webapp`
+Для установки приложения выполнить `helm install --name=webapp helm-repo/webapp`
 
 # Обновление
 
